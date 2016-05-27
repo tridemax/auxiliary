@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x64</Platform>
+    <ProjectGuid>{4C326611-DCA4-4E84-B3A8-14FB137357BC}</ProjectGuid>
+    <Compiler>
+      <Compiler ctype="GppCompiler" />
+    </Compiler>
+    <Language>CPP</Language>
+    <Target>Bin</Target>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <OutputPath>..\.build\auxiliary_debug</OutputPath>
+    <OutputName>auxiliary_debug</OutputName>
+    <IntermediateOutputPath>..\.build\auxiliary_debug</IntermediateOutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <CompileTarget>StaticLibrary</CompileTarget>
+    <DefineSymbols>_DEBUG DEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <ExtraCompilerArguments>
+		-std=c++14
+		-m64
+		-msse -msse2 -msse3 -mssse3 -msse4 -msse4.1 -msse4.2 -mavx -mf16c
+		-fpic
+		-fdata-sections
+		-ffunction-sections
+		-I../../boost
+		-I../../auxiliary/platform/linux
+	</ExtraCompilerArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>..\.build\auxiliary_release</OutputPath>
+    <OutputName>auxiliary_release</OutputName>
+    <IntermediateOutputPath>..\.build\auxiliary_release</IntermediateOutputPath>
+    <CompileTarget>StaticLibrary</CompileTarget>
+    <OptimizationLevel>3</OptimizationLevel>
+    <DefineSymbols>NDEBUG MONODEVELOP</DefineSymbols>
+    <SourceDirectory>.</SourceDirectory>
+    <ExtraCompilerArguments>
+		-std=c++14
+		-m64
+		-msse -msse2 -msse3 -mssse3 -msse4 -msse4.1 -msse4.2 -mavx -mf16c
+		-fpic
+		-fdata-sections
+		-ffunction-sections
+		-I../../boost
+		-I../../auxiliary/platform/linux
+	</ExtraCompilerArguments>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="platform\linux\platform.h" />
+    <None Include="source\ChunkedStorage.h" />
+    <None Include="source\CompressedStorage.h" />
+    <None Include="source\FixedArray.h" />
+    <None Include="source\FixedStream.h" />
+    <None Include="source\IStream.h" />
+    <None Include="source\JsonPrinter.h" />
+    <None Include="source\Miscellaneous.h" />
+    <None Include="source\VectorStream.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="source\FixedStream.cpp" />
+    <Compile Include="source\VectorStream.cpp" />
+    <Compile Include="boost\system\src\error_code.cpp" />
+    <Compile Include="boost\filesystem\src\codecvt_error_category.cpp" />
+    <Compile Include="boost\filesystem\src\operations.cpp" />
+    <Compile Include="boost\filesystem\src\path.cpp" />
+    <Compile Include="boost\filesystem\src\path_traits.cpp" />
+    <Compile Include="boost\filesystem\src\portability.cpp" />
+    <Compile Include="boost\filesystem\src\unique_path.cpp" />
+    <Compile Include="boost\filesystem\src\utf8_codecvt_facet.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="boost\" />
+  </ItemGroup>
+</Project>
