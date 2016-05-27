@@ -50,18 +50,16 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="platform\linux\platform.h" />
-    <None Include="source\ChunkedStorage.h" />
-    <None Include="source\CompressedStorage.h" />
-    <None Include="source\FixedArray.h" />
-    <None Include="source\FixedStream.h" />
-    <None Include="source\IStream.h" />
-    <None Include="source\JsonPrinter.h" />
-    <None Include="source\Miscellaneous.h" />
-    <None Include="source\VectorStream.h" />
+    <None Include="auxiliary\ChunkedStorage.h" />
+    <None Include="auxiliary\CompressedStorage.h" />
+    <None Include="auxiliary\FixedArray.h" />
+    <None Include="auxiliary\FixedStream.h" />
+    <None Include="auxiliary\IStream.h" />
+    <None Include="auxiliary\JsonPrinter.h" />
+    <None Include="auxiliary\Miscellaneous.h" />
+    <None Include="auxiliary\VectorStream.h" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="source\FixedStream.cpp" />
-    <Compile Include="source\VectorStream.cpp" />
     <Compile Include="boost\system\src\error_code.cpp" />
     <Compile Include="boost\filesystem\src\codecvt_error_category.cpp" />
     <Compile Include="boost\filesystem\src\operations.cpp" />
@@ -70,6 +68,8 @@
     <Compile Include="boost\filesystem\src\portability.cpp" />
     <Compile Include="boost\filesystem\src\unique_path.cpp" />
     <Compile Include="boost\filesystem\src\utf8_codecvt_facet.cpp" />
+    <Compile Include="auxiliary\FixedStream.cpp" />
+    <Compile Include="auxiliary\VectorStream.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="boost\" />
