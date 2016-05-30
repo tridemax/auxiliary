@@ -1,5 +1,0 @@
-Name: auxiliary
-Description: 
-Version: 0.1
-Libs: -L"/home/danek/Repos/.build/auxiliary_release" -lauxiliary_release
-Cflags: -I"/home/danek/Repos/auxiliary/platform/linux" -I"/home/danek/Repos/auxiliary/auxiliary"
