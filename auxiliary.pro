@@ -1,15 +1,28 @@
 
-QT       -= core gui
-
 CONFIG(debug, debug|release) {
+	message("auxiliary_debug")
+
 	TARGET = auxiliary_debug
+
+	DESTDIR = $$_PRO_FILE_PWD_/../.dist
+	OBJECTS_DIR = $$_PRO_FILE_PWD_/../.int/auxiliary_debug
+
 } else {
-	TARGET = auxiliary_release
+	message("auxiliary_release")
+
+	TARGET = auxiliary
+
+	DESTDIR = $$_PRO_FILE_PWD_/../.dist
+	OBJECTS_DIR = $$_PRO_FILE_PWD_/../.int/auxiliary_release
 }
 
 TEMPLATE = lib
-CONFIG += staticlib c++14
+CONFIG += staticlib precompile_header c++14
+CONFIG -= qt
 
+#-------------------------------------------------------------------------------------------------
+# warnings
+#-------------------------------------------------------------------------------------------------
 QMAKE_CXXFLAGS_WARN_ON += \
 	-Wno-parentheses \
 	-Wno-unused-variable \
@@ -19,6 +32,9 @@ QMAKE_CXXFLAGS_WARN_ON += \
 	-Wno-sign-compare \
 	-Wno-unused-function
 
+#-------------------------------------------------------------------------------------------------
+# compiler flags
+#-------------------------------------------------------------------------------------------------
 QMAKE_CXXFLAGS += \
 	-m64 \
 	-msse -msse2 -msse3 -mssse3 -msse4 -msse4.1 -msse4.2 -mavx -mf16c \
@@ -28,20 +44,12 @@ QMAKE_CXXFLAGS += \
 	-I$$_PRO_FILE_PWD_/platform/linux \
 	-I$$_PRO_FILE_PWD_/../boost
 
+PRECOMPILED_HEADER = $$_PRO_FILE_PWD_/platform/linux/platform.h
+
 CONFIG(debug, debug|release) {
-	message("auxiliary_debug")
-
-	DESTDIR = $$_PRO_FILE_PWD_/../.dist
-	OBJECTS_DIR = $$_PRO_FILE_PWD_/../.int/auxiliary_debug
-
 	DEFINES += _DEBUG DEBUG
 
 } else {
-	message("auxiliary_release")
-
-	DESTDIR = $$_PRO_FILE_PWD_/../.dist
-	OBJECTS_DIR = $$_PRO_FILE_PWD_/../.int/auxiliary_release
-
 	DEFINES += NDEBUG
 
 	QMAKE_CFLAGS_RELEASE -= -O0 -O1 -O2
@@ -51,6 +59,9 @@ CONFIG(debug, debug|release) {
 	QMAKE_CXXFLAGS_RELEASE *= -O3
 }
 
+#-------------------------------------------------------------------------------------------------
+# files
+#-------------------------------------------------------------------------------------------------
 SOURCES += \
     auxiliary/FixedStream.cpp \
     auxiliary/VectorStream.cpp \
