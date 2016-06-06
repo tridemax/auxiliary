@@ -83,4 +83,5 @@ HEADERS += \
     auxiliary/JsonPrinter.h \
     auxiliary/Miscellaneous.h \
     auxiliary/VectorStream.h \
-    platform/linux/platform.h
+    platform/linux/platform.h \
+    auxiliary/Clock.h

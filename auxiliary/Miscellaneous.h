@@ -29,7 +29,7 @@ namespace std
 		{
 		}
 
-		__forceinline int24_t& operator= (int32_t input)
+		forceinline int24_t& operator= (int32_t input)
 		{
 			m_internal[0] = static_cast<byte>(input);
 			m_internal[1] = static_cast<byte>(input >> 8);
@@ -38,12 +38,12 @@ namespace std
 			return *this;
 		}
 
-		__forceinline int24_t& operator =(float input)
+		forceinline int24_t& operator =(float input)
 		{
 			return operator=(static_cast<int32_t>(input));
 		}
 
-		__forceinline int24_t& operator =(double input)
+		forceinline int24_t& operator =(double input)
 		{
 			return operator=(static_cast<int32_t>(input));
 		}
@@ -137,7 +137,7 @@ namespace Auxiliary
 	class samples_converter
 	{
 	public:
-		__forceinline static void convert(const void* inputBuffer, output_t* outputBuffer, uint32_t samplesCount)
+		forceinline static void convert(const void* inputBuffer, output_t* outputBuffer, uint32_t samplesCount)
 		{
 			static_assert(std::is_same<input_t, output_t>::value, "Invalid input or output type.");
 
@@ -152,7 +152,7 @@ namespace Auxiliary
 	class samples_converter<int16_t, int32_t, TypeClass::SignedInteger, TypeClass::SignedInteger>
 	{
 	public:
-		__forceinline static void convert(const void* inputBuffer, int32_t* outputBuffer, uint32_t samplesCount)
+		forceinline static void convert(const void* inputBuffer, int32_t* outputBuffer, uint32_t samplesCount)
 		{
 			const int16_t* inputBufferStart = reinterpret_cast<const int16_t*>(inputBuffer);
 			const int16_t* inputBufferEnd = inputBufferStart + samplesCount;
@@ -171,7 +171,7 @@ namespace Auxiliary
 	class samples_converter<int16_t, int24_t, TypeClass::SignedInteger, TypeClass::SignedInteger>
 	{
 	public:
-		__forceinline static void convert(const void* inputBuffer, int24_t* outputBuffer, uint32_t samplesCount)
+		forceinline static void convert(const void* inputBuffer, int24_t* outputBuffer, uint32_t samplesCount)
 		{
 			assert(false);
 		}
@@ -184,7 +184,7 @@ namespace Auxiliary
 	class samples_converter<int24_t, int16_t, TypeClass::SignedInteger, TypeClass::SignedInteger>
 	{
 	public:
-		__forceinline static void convert(const void* inputBuffer, int16_t* outputBuffer, uint32_t samplesCount)
+		forceinline static void convert(const void* inputBuffer, int16_t* outputBuffer, uint32_t samplesCount)
 		{
 			assert(false);
 		}
@@ -197,7 +197,7 @@ namespace Auxiliary
 	class samples_converter<int24_t, int32_t, TypeClass::SignedInteger, TypeClass::SignedInteger>
 	{
 	public:
-		__forceinline static void convert(const void* inputBuffer, int32_t* outputBuffer, uint32_t samplesCount)
+		forceinline static void convert(const void* inputBuffer, int32_t* outputBuffer, uint32_t samplesCount)
 		{
 			const int24_t* inputBufferStart = reinterpret_cast<const int24_t*>(inputBuffer);
 			const int24_t* inputBufferEnd = inputBufferStart + samplesCount;
@@ -216,7 +216,7 @@ namespace Auxiliary
 	class samples_converter<int32_t, int16_t, TypeClass::SignedInteger, TypeClass::SignedInteger>
 	{
 	public:
-		__forceinline static void convert(const void* inputBuffer, int16_t* outputBuffer, uint32_t samplesCount)
+		forceinline static void convert(const void* inputBuffer, int16_t* outputBuffer, uint32_t samplesCount)
 		{
 			assert(false);
 		}
@@ -229,7 +229,7 @@ namespace Auxiliary
 	class samples_converter<int32_t, int24_t, TypeClass::SignedInteger, TypeClass::SignedInteger>
 	{
 	public:
-		__forceinline static void convert(const void* inputBuffer, int24_t* outputBuffer, uint32_t samplesCount)
+		forceinline static void convert(const void* inputBuffer, int24_t* outputBuffer, uint32_t samplesCount)
 		{
 			assert(false);
 		}
@@ -247,7 +247,7 @@ namespace Auxiliary
 		static constexpr output_t	Multiplier = One / (MaxInput + One);
 
 	public:
-		__forceinline static void convert(const void* inputBuffer, output_t* outputBuffer, uint32_t samplesCount)
+		forceinline static void convert(const void* inputBuffer, output_t* outputBuffer, uint32_t samplesCount)
 		{
 			const input_t* inputBufferStart = reinterpret_cast<const input_t*>(inputBuffer);
 			const input_t* inputBufferEnd = inputBufferStart + samplesCount;
@@ -271,7 +271,7 @@ namespace Auxiliary
 		static constexpr input_t	Multiplier = One / (MaxOutput + One);
 
 	public:
-		__forceinline static void convert(const void* inputBuffer, output_t* outputBuffer, uint32_t samplesCount)
+		forceinline static void convert(const void* inputBuffer, output_t* outputBuffer, uint32_t samplesCount)
 		{
 			const input_t* inputBufferStart = reinterpret_cast<const input_t*>(inputBuffer);
 			const input_t* inputBufferEnd = inputBufferStart + samplesCount;
@@ -295,7 +295,7 @@ namespace Auxiliary
 	class samples_converter<float, double, TypeClass::Float, TypeClass::Float>
 	{
 	public:
-		__forceinline static void convert(const void* inputBuffer, double* outputBuffer, uint32_t samplesCount)
+		forceinline static void convert(const void* inputBuffer, double* outputBuffer, uint32_t samplesCount)
 		{
 			const float* inputBufferStart = reinterpret_cast<const float*>(inputBuffer);
 			const float* inputBufferEnd = inputBufferStart + samplesCount;
@@ -314,7 +314,7 @@ namespace Auxiliary
 	class samples_converter<double, float, TypeClass::Float, TypeClass::Float>
 	{
 	public:
-		__forceinline static void convert(const void* inputBuffer, float* outputBuffer, uint32_t samplesCount)
+		forceinline static void convert(const void* inputBuffer, float* outputBuffer, uint32_t samplesCount)
 		{
 			const double* inputBufferStart = reinterpret_cast<const double*>(inputBuffer);
 			const double* inputBufferEnd = inputBufferStart + samplesCount;

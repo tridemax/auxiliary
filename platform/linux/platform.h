@@ -91,5 +91,5 @@ constexpr size_t _countof( ArrayType (&)[Dimension] )
 //-------------------------------------------------------------------------------------------------
 /// defines
 //-------------------------------------------------------------------------------------------------
-#define __forceinline					__attribute__((always_inline))
-#define _alloca							alloca
+#define forceinline					inline __attribute__((always_inline))
+#define selectany					__attribute__((weak))
