@@ -4,7 +4,7 @@
 #include "Miscellaneous.h"
 
 
-namespace Auxiliary
+namespace Aux
 {
 	//-------------------------------------------------------------------------------------------------
 	/// AbstractValue

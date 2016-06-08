@@ -72,7 +72,8 @@ SOURCES += \
     ../boost/libs/filesystem/src/path.cpp \
     ../boost/libs/filesystem/src/portability.cpp \
     ../boost/libs/filesystem/src/unique_path.cpp \
-    ../boost/libs/filesystem/src/utf8_codecvt_facet.cpp
+    ../boost/libs/filesystem/src/utf8_codecvt_facet.cpp \
+    google/farmhash.cc
 
 HEADERS += \
     auxiliary/ChunkedStorage.h \
@@ -84,4 +85,6 @@ HEADERS += \
     auxiliary/Miscellaneous.h \
     auxiliary/VectorStream.h \
     platform/linux/platform.h \
-    auxiliary/Clock.h
+    auxiliary/Clock.h \
+    google/farmhash.h \
+    auxiliary.h

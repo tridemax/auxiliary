@@ -90,8 +90,21 @@ namespace std
 
 using std::int24_t;
 
-namespace Auxiliary
+namespace Aux
 {
+	//-------------------------------------------------------------------------------------------------
+	/// DummyHash
+	//-------------------------------------------------------------------------------------------------
+	template <class KeyType>
+	class DummyHash : public std::unary_function<KeyType, std::size_t>
+	{
+	public:
+		forceinline size_t operator() (KeyType keyValue) const
+		{
+			return keyValue;
+		}
+	};
+
 	//-------------------------------------------------------------------------------------------------
 	/// type_classifier
 	//-------------------------------------------------------------------------------------------------

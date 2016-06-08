@@ -3,7 +3,7 @@
 #include "IStream.h"
 
 
-namespace Auxiliary
+namespace Aux
 {
 	//-------------------------------------------------------------------------------------------------
 	/// ChunkedStorage
