@@ -16,9 +16,10 @@ static_assert(sizeof(byte) == 1u, "Size of \"byte\" typedef not equal to 8 bit."
 //-------------------------------------------------------------------------------------------------
 /// auxiliary
 //-------------------------------------------------------------------------------------------------
+#include "google/farmhash/farmhash.h"
 #include "auxiliary/Miscellaneous.h"
-#include "auxiliary/Clock.h"
 #include "auxiliary/FixedArray.h"
 #include "auxiliary/FixedStream.h"
 #include "auxiliary/VectorStream.h"
-#include "google/farmhash.h"
+#include "auxiliary/Clock.h"
+#include "auxiliary/FileSystemUtils.h"
