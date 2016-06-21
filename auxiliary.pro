@@ -19,6 +19,7 @@ CONFIG(debug, debug|release) {
 TEMPLATE = lib
 CONFIG += staticlib precompile_header c++14
 CONFIG -= qt
+MAKEFILE = $$_PRO_FILE_PWD_/auxiliary.makefile
 
 #-------------------------------------------------------------------------------------------------
 # warnings
@@ -38,9 +39,7 @@ QMAKE_CXXFLAGS_WARN_ON += \
 QMAKE_CXXFLAGS += \
 	-m64 \
 	-msse -msse2 -msse3 -mssse3 -msse4 -msse4.1 -msse4.2 -mavx -mf16c \
-	-fpic \
-	-fdata-sections \
-	-ffunction-sections \
+	-fpic -fdata-sections -ffunction-sections -fno-strict-aliasing \
 	-I$$_PRO_FILE_PWD_/platform/linux \
 	-I$$_PRO_FILE_PWD_/../boost
 
@@ -65,14 +64,6 @@ CONFIG(debug, debug|release) {
 SOURCES += \
     auxiliary/FixedStream.cpp \
     auxiliary/VectorStream.cpp \
-    ../boost/libs/system/src/error_code.cpp \
-    ../boost/libs/filesystem/src/codecvt_error_category.cpp \
-    ../boost/libs/filesystem/src/operations.cpp \
-    ../boost/libs/filesystem/src/path_traits.cpp \
-    ../boost/libs/filesystem/src/path.cpp \
-    ../boost/libs/filesystem/src/portability.cpp \
-    ../boost/libs/filesystem/src/unique_path.cpp \
-    ../boost/libs/filesystem/src/utf8_codecvt_facet.cpp \
 	google/farmhash/farmhash.cc
 
 HEADERS += \
