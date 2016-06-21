@@ -39,9 +39,12 @@ QMAKE_CXXFLAGS_WARN_ON += \
 QMAKE_CXXFLAGS += \
 	-m64 \
 	-msse -msse2 -msse3 -mssse3 -msse4 -msse4.1 -msse4.2 -mavx -mf16c \
-	-fpic -fdata-sections -ffunction-sections -fno-strict-aliasing \
-	-I$$_PRO_FILE_PWD_/platform/linux \
-	-I$$_PRO_FILE_PWD_/../boost
+	-fpic \
+	-fdata-sections \
+	-ffunction-sections \
+	-fno-strict-aliasing \
+	-I$$_PRO_FILE_PWD_/../auxiliary \
+	-I$$_PRO_FILE_PWD_/platform/linux
 
 PRECOMPILED_HEADER = $$_PRO_FILE_PWD_/platform/linux/platform.h
 
