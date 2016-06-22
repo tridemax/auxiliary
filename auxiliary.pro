@@ -39,6 +39,7 @@ QMAKE_CXXFLAGS_WARN_ON += \
 QMAKE_CXXFLAGS += \
 	-m64 \
 	-msse -msse2 -msse3 -mssse3 -msse4 -msse4.1 -msse4.2 -mavx -mf16c \
+	-g \
 	-fpic \
 	-fdata-sections \
 	-ffunction-sections \
