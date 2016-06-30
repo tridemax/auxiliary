@@ -66,21 +66,20 @@ CONFIG(debug, debug|release) {
 # files
 #-------------------------------------------------------------------------------------------------
 SOURCES += \
-    auxiliary/FixedStream.cpp \
-    auxiliary/VectorStream.cpp \
-	google/farmhash/farmhash.cc
+	source/FixedStream.cpp \
+	source/VectorStream.cpp
 
 HEADERS += \
-    auxiliary/ChunkedStorage.h \
-    auxiliary/CompressedStorage.h \
-    auxiliary/FixedArray.h \
-    auxiliary/FixedStream.h \
-    auxiliary/IStream.h \
-    auxiliary/JsonPrinter.h \
-    auxiliary/Miscellaneous.h \
-    auxiliary/VectorStream.h \
-    platform/linux/platform.h \
-    auxiliary/Clock.h \
-	google/farmhash/farmhash.h \
-    auxiliary.h \
-    auxiliary/FileSystemUtils.h
+	platform/linux/platform.h \
+	auxiliary.h \
+	source/Hash.h \
+	source/ChunkedStorage.h \
+	source/CompressedStorage.h \
+	source/FixedArray.h \
+	source/FixedStream.h \
+	source/IStream.h \
+	source/JsonPrinter.h \
+	source/Miscellaneous.h \
+	source/VectorStream.h \
+	source/Clock.h \
+	source/FileSystemUtils.h
