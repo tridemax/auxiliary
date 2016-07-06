@@ -2,7 +2,7 @@
 #include "FixedStream.h"
 
 
-namespace Aux
+namespace aux
 {
 	//-------------------------------------------------------------------------------------------------
 	FixedStream::FixedStream(byte* bufferStart, StreamPos bufferLength) : m_bufferStart(bufferStart), m_bufferLength(bufferLength), m_currentPosition(0u)

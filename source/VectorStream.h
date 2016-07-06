@@ -4,7 +4,7 @@
 #include "Miscellaneous.h"
 
 
-namespace Aux
+namespace aux
 {
 	template <bool OwnVector = true>
 	class VectorStream : public IMemoryStream, public boost::noncopyable

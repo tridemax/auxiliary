@@ -3,7 +3,7 @@
 #include "IStream.h"
 
 
-namespace Aux
+namespace aux
 {
 	class FixedStream : public IMemoryStream
 	{

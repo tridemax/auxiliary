@@ -2,7 +2,7 @@
 #include "VectorStream.h"
 
 
-namespace Aux
+namespace aux
 {
 	//-------------------------------------------------------------------------------------------------
 	template <bool OwnVector>

@@ -90,7 +90,7 @@ namespace std
 
 using std::int24_t;
 
-namespace Aux
+namespace aux
 {
 	//-------------------------------------------------------------------------------------------------
 	/// DummyHash

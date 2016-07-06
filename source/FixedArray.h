@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace Aux
+namespace aux
 {
 	//-------------------------------------------------------------------------------------------------
 	enum class MemoryOwnage : int32_t
