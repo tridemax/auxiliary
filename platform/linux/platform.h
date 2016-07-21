@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PLATFORM_H_GUARD
+#define PLATFORM_H_GUARD
 
 //-------------------------------------------------------------------------------------------------
 /// posix
@@ -93,3 +94,6 @@ constexpr size_t _countof( ArrayType (&)[Dimension] )
 //-------------------------------------------------------------------------------------------------
 #define forceinline					inline __attribute__((always_inline))
 #define selectany					__attribute__((weak))
+
+
+#endif
